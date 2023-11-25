@@ -31,7 +31,7 @@ data:
   noise: True
 
 
-out_dir: /private/home/kiwi/icl/models/
+out_dir: /output
 
 wandb_entity: "hku_cs_20"
 

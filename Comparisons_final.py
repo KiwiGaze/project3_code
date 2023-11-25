@@ -16,7 +16,6 @@ import torch.nn as nn
 import wandb
 import tempfile
 from sklearn.linear_model import Ridge
-from mlps import create_mlp, MLPset
 from baselines_ols_ridge import create_predictors, generate_predictions, create_predictors_ridge, generate_predictions_ridge
 from schema_comp import schema 
 from quinine import QuinineArgumentParser
@@ -62,26 +61,16 @@ def main(args):
     plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1),  alpha=.2)
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
-    path_mlp = args.path_mlp
-    psi_mlp = create_mlp((11,500,500,500,100), 'ReLU', True, False, 0.0)
-    rho_mlp = create_mlp((100,500,500,500,100), 'ReLU', True, False, 0.0)
-    xi_mlp  = create_mlp((110,500,1), 'ReLU', True, False, 0.0)
-
-    model_MLPs = MLPset(psi_mlp, rho_mlp, xi_mlp)
-    model_MLPs.load_state_dict(torch.load(path_mlp))
-    model_MLPs.to(device)
+   
     prompt_tensor, label_tensor = data_prep(xs,ys)
     prompt_tensor, label_tensor = prompt_tensor.to(device), label_tensor.to(device)
-    model_MLPs.eval()
-    pred_MLPs = model_MLPs(prompt_tensor)
-    loss_t = torch.square(pred_MLPs-label_tensor)
-    loss_t = torch.square(pred_MLPs-label_tensor)
+    
 
     mean_loss = loss_t.mean(axis=0).cpu().detach().numpy()
     std_loss = loss_t.std(axis=0).cpu().detach().numpy()/np.sqrt(batch_size)
 
-    plt.plot(np.arange(1,50),mean_loss, lw=2, label="MLP-set")
-    plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1), alpha=.2)
+    #plt.plot(np.arange(1,50),mean_loss, lw=2, label="MLP-set")
+    #plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1), alpha=.2)
 
 
     # Create the set of predictors
@@ -115,10 +104,10 @@ def main(args):
     plt.tight_layout()
     plt.show()
 
-
+    '''
     with tempfile.NamedTemporaryFile(suffix=".png") as temp:
         plt.savefig(temp.name, format="png", dpi=300)
-        wandb.log({"ICL in MLPs vs Transformer": wandb.Image(temp.name)})
+        wandb.log({"ICL in MLPs vs Transformer": wandb.Image(temp.name)})'''
 
 if __name__ == "__main__":
     parser = QuinineArgumentParser(schema=schema)

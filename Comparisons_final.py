@@ -28,7 +28,7 @@ def data_prep(xs,ys):
 
 
 def main(args):
-    wandb.init(project="in-context-learning-output", entity=args.wandb_entity)
+    wandb.init(project="in-context-learning", entity=args.wandb_entity)
     sns.set_theme('notebook', 'darkgrid')
     palette = sns.color_palette('colorblind')
 

@@ -28,14 +28,14 @@ def data_prep(xs,ys):
 
 
 def main(args):
-    wandb.init(project="in-context-learning", entity=args.wandb_entity)
+    wandb.init(project="in-context-learning-output", entity=args.wandb_entity)
     sns.set_theme('notebook', 'darkgrid')
     palette = sns.color_palette('colorblind')
 
     run_path = args.path_txformer
     model, conf = get_model_from_run(run_path)
     n_dims = conf.model.n_dims
-    # batch_size = conf.training.batch_size
+    batch_size = conf.training.batch_size
     batch_size = 1000
     data_sampler = get_data_sampler(conf.training.data, n_dims)
     task_sampler = get_task_sampler(

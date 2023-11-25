@@ -31,7 +31,7 @@ data:
   noise: True
 
 
-out_dir: /private/home/kartikahuja/icl/models/
+out_dir: /private/home/kiwi/icl/models/
 
-wandb_entity: "kartik-ahuja"
+wandb_entity: "hku_cs_20"
 

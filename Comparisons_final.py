@@ -104,10 +104,10 @@ def main(args):
     plt.tight_layout()
     plt.show()
 
-    '''
+
     with tempfile.NamedTemporaryFile(suffix=".png") as temp:
         plt.savefig(temp.name, format="png", dpi=300)
-        wandb.log({"ICL in MLPs vs Transformer": wandb.Image(temp.name)})'''
+        wandb.log({"ICL in MLPs vs Transformer": wandb.Image(temp.name)})
 
 if __name__ == "__main__":
     parser = QuinineArgumentParser(schema=schema)

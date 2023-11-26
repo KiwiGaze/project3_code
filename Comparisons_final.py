@@ -66,8 +66,8 @@ def main(args):
     prompt_tensor, label_tensor = prompt_tensor.to(device), label_tensor.to(device)
     
 
-    mean_loss = loss_t.mean(axis=0).cpu().detach().numpy()
-    std_loss = loss_t.std(axis=0).cpu().detach().numpy()/np.sqrt(batch_size)
+    #mean_loss = loss_t.mean(axis=0).cpu().detach().numpy()
+    #std_loss = loss_t.std(axis=0).cpu().detach().numpy()/np.sqrt(batch_size)
 
     #plt.plot(np.arange(1,50),mean_loss, lw=2, label="MLP-set")
     #plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1), alpha=.2)

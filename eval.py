@@ -15,6 +15,7 @@ from tasks import get_task_sampler
 
 
 def get_model_from_run(run_path, step=-1, only_conf=False):
+    print(run_path)
     config_path = os.path.join(run_path, "config.yaml")
     with open(config_path) as fp:  # we don't Quinfig it to avoid inherits
         conf = Munch.fromDict(yaml.safe_load(fp))

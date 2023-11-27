@@ -78,16 +78,16 @@ def main(args):
 
 
     # Create the set of predictors
-    predictors = create_predictors(xs, ys)
-    predictions_ls = generate_predictions(xs, predictors)
-    loss_ls = torch.square(predictions_ls.to(device)-label_tensor.squeeze(-1))
+    #predictors = create_predictors(xs, ys)
+    #predictions_ls = generate_predictions(xs, predictors)
+    #loss_ls = torch.square(predictions_ls.to(device)-label_tensor.squeeze(-1))
 
-    mean_loss = loss_ls.mean(axis=0).cpu().detach().numpy()
-    std_loss = loss_ls.std(axis=0).cpu().detach().numpy()/np.sqrt(batch_size)
+    #mean_loss = loss_ls.mean(axis=0).cpu().detach().numpy()
+    #std_loss = loss_ls.std(axis=0).cpu().detach().numpy()/np.sqrt(batch_size)
 
 
-    plt.plot(np.arange(1,50),mean_loss, lw=2, label="OLS")
-    plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1),  alpha=.2)
+    #plt.plot(np.arange(1,50),mean_loss, lw=2, label="OLS")
+    #plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1),  alpha=.2)
     #plt.savefig('plot1.png')
     #plt.show()
 

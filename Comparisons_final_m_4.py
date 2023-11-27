@@ -48,7 +48,7 @@ def main(args):
     prompt_len_test =50
     task = task_sampler()
     xs = torch.randn(batch_size,prompt_len_test,20)
-    xs = xs + 4
+    xs = xs + m
     ys = task.evaluate(xs)
 
     with torch.no_grad():

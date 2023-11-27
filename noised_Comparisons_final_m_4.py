@@ -32,7 +32,7 @@ def main(args):
     sns.set_theme('notebook', 'darkgrid')
     palette = sns.color_palette('colorblind')
 
-    m = 2
+    m = 4
     run_path = args.path_txformer
     model, conf = get_model_from_run(run_path)
     n_dims = conf.model.n_dims

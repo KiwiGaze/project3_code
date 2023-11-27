@@ -104,7 +104,7 @@ def main(args):
     plt.ylabel("squared error")
     plt.legend()
     plt.tight_layout()
-    plt.savefig('plot.png')
+    plt.savefig('plot_4.png')
     plt.show()
 
 

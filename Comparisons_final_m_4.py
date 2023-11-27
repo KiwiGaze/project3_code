@@ -32,7 +32,7 @@ def main(args):
     sns.set_theme('notebook', 'darkgrid')
     palette = sns.color_palette('colorblind')
 
-    m = 2
+    m = 4
     run_path = args.path_txformer
     model, conf = get_model_from_run(run_path)
     n_dims = conf.model.n_dims
@@ -48,6 +48,7 @@ def main(args):
     prompt_len_test =50
     task = task_sampler()
     xs = torch.randn(batch_size,prompt_len_test,20)
+    xs = xs + 4
     ys = task.evaluate(xs)
 
     with torch.no_grad():

@@ -84,8 +84,8 @@ def main(args):
 
     plt.plot(np.arange(1,50),mean_loss, lw=2, label="OLS")
     plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1),  alpha=.2)
-    plt.savefig('plot1.png')
-    plt.show()
+    #plt.savefig('plot1.png')
+    #plt.show()
 
     # Create the set of predictors
     predictors_ridge = create_predictors_ridge(xs, ys)
@@ -103,7 +103,7 @@ def main(args):
     plt.ylabel("squared error")
     plt.legend()
     plt.tight_layout()
-    plt.savefig('plot2.png')
+    plt.savefig('plot.png')
     plt.show()
 
 

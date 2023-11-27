@@ -100,7 +100,7 @@ def main(args):
     plt.plot(np.arange(1,50),mean_loss, lw=2, label="Ridge")
     plt.fill_between(np.arange(1,50), mean_loss.reshape(-1) - std_loss.reshape(-1), mean_loss.reshape(-1) + std_loss.reshape(-1),  alpha=.2)
     plt.xlabel("# in-context examples")
-    plt.text(0.5, -0.2, '(c)', size=12, ha="center", 
+    plt.text(0.5, -0.2, '(b)', size=12, ha="center", 
             transform=plt.gca().transAxes)
     plt.ylabel("squared error")
     plt.legend()

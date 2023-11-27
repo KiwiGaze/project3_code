@@ -49,7 +49,7 @@ def main(args):
     task = task_sampler()
     xs = torch.randn(batch_size,prompt_len_test,20)
     noise = torch.randn(xs.shape)
-    ys = task.evaluate(xs)
+    ys = task.evaluate(xs)+noise
 
     with torch.no_grad():
         pred = model(xs, ys)

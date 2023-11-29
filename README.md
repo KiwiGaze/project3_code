@@ -18,8 +18,11 @@
     python Comparisons_final.py --config confs/comparison_mlp_txformer.yaml
     ```
 
-3. For Shift in Data Distribution part, you can run data_distribution.ipynb for simplicity.
+3. For Shift in Data Distribution part, you can run data_distribution.ipynb for simplicity. To use .ipynb You should clone our github repo to your own Github repo, and the reposity could be 'project3_code' if you clone the whole repo as your repo. Remember to change other code here to your own github profile.
     ```
-    python Comparisons_final.py --config confs/comparison_mlp_txformer.yaml
+    username = 'Your_github_name'
+    git_token = 'your_github_token'
+    repository = 'where_you_store_our_github_repository'
+    !git clone https://{git_token}@github.com/{username}/{repository}
     ```
     

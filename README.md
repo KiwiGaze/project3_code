@@ -25,7 +25,7 @@
     ```
     Run the following for severe shift without noise:
     ```
-    python Comparisons_final_m_2.py --config confs/comparison_mlp_txformer.yaml
+    python Comparisons_final_m_4.py --config confs/comparison_mlp_txformer.yaml
     ```
     Run the following for no shift with noise:
     ```
